@@ -33,6 +33,7 @@ vendor.display.enable_default_color_mode=1
 ro.sf.hwc_set_default_colormode=true
 debug.sf.enable_hwc_vds=1
 debug.sf.hw=1
+debug.sf.enable_gl_backpressure=1
 debug.sf.latch_unsignaled=1
 debug.egl.hw=1
 persist.hwc.mdpcomp.enable=true
