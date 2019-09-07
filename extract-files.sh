@@ -89,6 +89,10 @@ function blob_fixup() {
         patchelf --add-needed libqsap_shim.so "${2}"
         ;;
 
+    vendor/lib/libmot_gpu_mapper.so)
+        sed -i "s/libgui/libwui/" "${2}"
+        ;;
+
     esac
 }
 
