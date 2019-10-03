@@ -224,6 +224,7 @@ WIFI_DRIVER_FW_PATH_STA          := "sta"
 WIFI_DRIVER_FW_PATH_P2P          := "p2p"
 WPA_SUPPLICANT_VERSION           := VER_0_8_X
 TARGET_DISABLE_WCNSS_CONFIG_COPY := true
+WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
 PRODUCT_VENDOR_MOVE_ENABLED := true
 
 -include vendor/motorola/msm8953-common/BoardConfigVendor.mk
