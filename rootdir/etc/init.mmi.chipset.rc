@@ -32,7 +32,6 @@ on post-fs-data
 
 on moto-charger
     setprop ro.board.platform msm8953
-    load_system_props
     trigger firmware_mounts_complete
     start  qcom-post-boot
     start vendor.gbmodinstall
