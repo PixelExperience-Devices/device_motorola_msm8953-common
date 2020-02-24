@@ -1,2 +1,6 @@
+allow system_app sysfs_homebutton:file write;
+allow system_app sysfs_homebutton:dir search;
+allow system_app sysfs_homebutton:file { getattr open };
+
 get_prop(system_app, vendor_fm_prop)
 get_prop(system_app, hwrev_prop)
