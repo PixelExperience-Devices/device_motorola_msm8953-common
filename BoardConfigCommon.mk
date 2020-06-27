@@ -148,6 +148,10 @@ TARGET_FS_CONFIG_GEN := \
     $(COMMON_PATH)/configs/config.fs \
     $(COMMON_PATH)/configs/mot_aids.fs
 
+# Init
+TARGET_INIT_VENDOR_LIB := //$(COMMON_PATH):libinit_msm8953
+TARGET_RECOVERY_DEVICE_MODULES := libinit_msm8953
+
 # Kernel
 TARGET_COMPILE_WITH_MSM_KERNEL := true
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom user_debug=30 msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 androidboot.bootdevice=7824900.sdhci firmware_class.path=/vendor/firmware_mnt/image loop.max_part=16
