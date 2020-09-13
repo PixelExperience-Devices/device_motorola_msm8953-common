@@ -91,6 +91,10 @@ function blob_fixup() {
 
     vendor/lib/libmot_gpu_mapper.so)
         sed -i "s/libgui/libwui/" "${2}"
+
+    # Fix missing symbols
+    vendor/lib64/libril-qc-hal-qmi.so)
+        patchelf --add-needed "libcutils_shim.so" "${2}"
         ;;
 
     esac
