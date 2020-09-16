@@ -84,6 +84,11 @@ function blob_fixup() {
         sed -i 's/group system input 9015/group system uhid input 9015/' "${2}"
         ;;
 
+    # memset shim
+    vendor/bin/charge_only_mode)
+        patchelf --add-needed libmemset_shim.so "${2}"
+        ;;
+
     # qsap shim
     vendor/lib64/libmdmcutback.so)
         patchelf --add-needed libqsap_shim.so "${2}"
@@ -91,6 +96,7 @@ function blob_fixup() {
 
     vendor/lib/libmot_gpu_mapper.so)
         sed -i "s/libgui/libwui/" "${2}"
+        ;;
 
     # Fix missing symbols
     vendor/lib64/libril-qc-hal-qmi.so)
