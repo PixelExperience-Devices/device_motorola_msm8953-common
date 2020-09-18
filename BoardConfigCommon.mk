@@ -203,7 +203,7 @@ CUSTOM_APNS_FILE := $(COMMON_PATH)/configs/sprint_apns.xml
 BOARD_ROOT_EXTRA_FOLDERS := persist
 
 # SELinux
-include device/qcom/sepolicy-legacy-um/sepolicy.mk
+include device/qcom/sepolicy-legacy-um/SEPolicy.mk
 BOARD_VENDOR_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/vendor
 BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(COMMON_PATH)/sepolicy/private
 
