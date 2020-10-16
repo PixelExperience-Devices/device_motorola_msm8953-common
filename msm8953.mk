@@ -116,8 +116,6 @@ PRODUCT_PACKAGES += \
     init.qti.fm.sh \
     qcom.fmradio
 
-PRODUCT_BOOT_JARS += qcom.fmradio
-
 PRODUCT_GMS_CLIENTID_BASE := android-motorola
 
 # Fingerprint IDC
