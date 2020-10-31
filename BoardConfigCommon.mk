@@ -183,7 +183,7 @@ BOARD_ROOT_EXTRA_SYMLINKS := \
     /mnt/vendor/persist:/persist
 
 # Vendor Security Patch Level
-VENDOR_SECURITY_PATCH := 2020-08-01
+VENDOR_SECURITY_PATCH := 2020-10-01
 
 # Treble
 BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
