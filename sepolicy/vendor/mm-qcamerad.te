@@ -1,0 +1,20 @@
+typeattribute mm-qcamerad data_between_core_and_vendor_violators;
+allow mm-qcamerad camera_prop:property_service set;
+allow mm-qcamerad init:unix_stream_socket connectto;
+allow mm-qcamerad persist_file:dir { getattr open read search  };
+allow mm-qcamerad persist_file:file { read open getattr };
+allow mm-qcamerad property_socket:sock_file write;
+allow mm-qcamerad mnt_vendor_file:file rw_file_perms;
+
+# TODO(b/36599434): Remove this once mm-qcamerad stops using Binder services
+typeattribute mm-qcamerad binder_in_vendor_violators;
+allow mm-qcamerad binder_device:chr_file { read write };
+
+allow mm-qcamerad fwk_sensor_hwservice:hwservice_manager find;
+allow mm-qcamerad camera_data_file:dir search;
+
+allow mm-qcamerad vendor_data_file:dir r_dir_perms;
+allow mm-qcamerad vendor_data_file:file rw_file_perms;
+
+vndbinder_use(mm-qcamerad);
+get_prop(mm-qcamerad, moto_boot_prop);
