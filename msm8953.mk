@@ -85,9 +85,10 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.camera.device@1.0_vendor \
     MotCamera2
 
-# Configstore
+# Codec2 modules
 PRODUCT_PACKAGES += \
-    android.hardware.configstore@1.0-service
+    com.android.media.swcodec \
+    libsfplugin_ccodec
 
 # Display
 PRODUCT_PACKAGES += \
@@ -240,10 +241,6 @@ PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_telephony.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_video.xml
 
-# Media
-PRODUCT_PACKAGES += \
-    libc2dcolorconvert
-
 # Netutils
 PRODUCT_PACKAGES += \
     android.system.net.netd@1.0 \
@@ -257,6 +254,8 @@ PRODUCT_PACKAGES += \
 
 # OMX
 PRODUCT_PACKAGES += \
+    libc2dcolorconvert \
+    libextmedia_jni \
     libOmxAacEnc \
     libOmxAmrEnc \
     libOmxCore \
@@ -439,5 +438,3 @@ PRODUCT_COPY_FILES += \
 # Wi-Fi Display
 PRODUCT_BOOT_JARS += \
     WfdCommon
-
-PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0

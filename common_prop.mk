@@ -1,4 +1,4 @@
- #Build FP to be picked by both system and vendor
+#Build FP to be picked by both system and vendor
 BUILD_FINGERPRINT := "google/walleye/walleye:8.1.0/OPM1.171019.011/4448085:user/release-keys"
 
 # ART
@@ -63,10 +63,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.media.codec2=2
 
-# CNE
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.vendor.cne.feature=1
-
 # Color Mode
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.display.enable_default_color_mode=1
@@ -75,19 +71,20 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.hwc_set_default_colormode=true \
     debug.sf.enable_hwc_vds=1 \
-    debug.sf.hw=0 \
+    debug.sf.hw=1 \
     debug.sf.latch_unsignaled=1 \
-    debug.egl.hw=0 \
-    debug.enable.sglscale=1 \
-    dev.pm.dyn_samplingrate=1 \
-    persist.debug.wfd.enable=1 \
-    debug.sf.recomputecrop=0 \
+    debug.egl.hw=1 \
     persist.hwc.mdpcomp.enable=true \
-    ro.qualcomm.cabl=0 \
-    ro.opengles.version=196610 \
-    sdm.debug.disable_skip_validate=1 \
+    vendor.gralloc.enable_fb_ubwc=1 \
     vendor.display.disable_skip_validate=1 \
-    vendor.gralloc.enable_fb_ubwc=1
+    vendor.video.disable.ubwc=1 \
+    dev.pm.dyn_samplingrate=1 \
+    persist.demo.hdmirotationlock=false \
+    debug.enable.sglscale=1 \
+    debug.gralloc.enable_fb_ubwc=1 \
+    debug.sf.recomputecrop=0 \
+    ro.opengles.version=196610 \
+    ro.qualcomm.cabl=0
 
 # Fingerprint
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -101,19 +98,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     media.stagefright.thumbnail.prefer_hw_codecs=true
 
-# Media
+# OMX
+# Rank OMX SW codecs lower than OMX HW codecs
 PRODUCT_PROPERTY_OVERRIDES += \
-    media.aac_51_output_enabled=true \
-    mm.enable.smoothstreaming=true \
-    mmp.enable.3g2=true \
-    vendor.mm.enable.qcom_parser=1048575 \
-    vendor.mm.en.sec.smoothstreaming=false \
-    vendor.vidc.enc.disable_bframes=1 \
-    vendor.vidc.enc.disable.pq=true \
-    vendor.vidc.dec.downscalar_width=1920 \
-    vendor.vidc.dec.downscalar_height=1088 \
-    vendor.vidc.disable.split.mode=1  \
-    vendor.video.disable.ubwc=1
+    debug.stagefright.omx_default_rank.sw-audio=1 \
+    debug.stagefright.omx_default_rank=0
 
 # NITZ
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -204,12 +193,21 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ril.subscription.types=NV,RUIM \
     telephony.lteOnCdmaDevice=1
 
+# SurfaceFlinger
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    ro.surface_flinger.force_hwc_copy_for_virtual_displays=true \
+    ro.surface_flinger.max_virtual_display_dimension=4096 \
+    ro.surface_flinger.protected_contents=true \
+    ro.surface_flinger.vsync_event_phase_offset_ns=2000000 \
+    ro.surface_flinger.vsync_sf_event_phase_offset_ns=6000000 \
+    ro.surface_flinger.use_color_management=true
+
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.early_phase_offset_ns=1500000 \
     debug.sf.early_app_phase_offset_ns=1500000 \
     debug.sf.early_gl_phase_offset_ns=3000000 \
     debug.sf.early_gl_app_phase_offset_ns=15000000
 
-# RmNet Data
+# Wifi
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.data.wda.enable=true
+    wifi.interface=wlan0
