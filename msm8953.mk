@@ -30,12 +30,6 @@ $(call inherit-product, $(COMMON_PATH)/common_prop.mk)
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += $(COMMON_PATH)
 
-#ANT+ stack
-PRODUCT_PACKAGES += \
-    AntHalService \
-    libantradio \
-    antradio_app
-
 # Audio
 PRODUCT_PACKAGES += \
     android.hardware.audio@6.0-impl \
@@ -78,9 +72,7 @@ PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl \
     camera.device@3.2-impl \
     Camera2 \
-    libwui \
-    vendor.qti.hardware.camera.device@1.0 \
-    vendor.qti.hardware.camera.device@1.0_vendor
+    libwui
 
 # Codec2 modules
 PRODUCT_PACKAGES += \
@@ -192,7 +184,6 @@ PRODUCT_COPY_FILES += \
 # Init
 PRODUCT_PACKAGES += \
     init.class_main.sh \
-    init.mmi.boot.sh \
     init.mmi.usb.sh \
     init.qcom.early_boot.sh \
     init.qcom.post_boot.sh \
@@ -345,11 +336,6 @@ PRODUCT_PACKAGES += \
     PresencePolling \
     RcsService
 
-# AOT Preload
-PRODUCT_DEXPREOPT_SPEED_APPS += \
-    SystemUI \
-    NexusLauncherRelease
-
 # Qualcomm
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/permissions/privapp-permissions-qti.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-qti.xml \
@@ -394,9 +380,7 @@ PRODUCT_COPY_FILES += \
 # Sensors
 PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-impl \
-    android.hardware.sensors@1.0-service \
-    libsensorndkbridge
-
+    android.hardware.sensors@1.0-service
 # Shims
 PRODUCT_PACKAGES += \
     libcutils_shim \

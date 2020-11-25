@@ -19,9 +19,9 @@ on boot
     chown system system /sys/class/capsense/set_threshold
 
     # Change permission for fingerprint sensor
-    chown system mot_tcmd /sys/devices/soc/soc:fpc_fpc1020/dev_enable
-    chown system mot_tcmd /sys/devices/soc/soc:fpc_fpc1020/irq
-    chown system mot_tcmd /sys/devices/soc/soc:fpc_fpc1020/irq_cnt
+    chown system oem_5004 /sys/devices/soc/soc:fpc_fpc1020/dev_enable
+    chown system oem_5004 /sys/devices/soc/soc:fpc_fpc1020/irq
+    chown system oem_5004 /sys/devices/soc/soc:fpc_fpc1020/irq_cnt
     chmod 0440 /sys/devices/soc/soc:fpc_fpc1020/irq_cnt
 
    # Change ownership and permission for laser_sensor
@@ -33,11 +33,6 @@ on boot
    chmod 0660 /sys/kernel/range/near
 
    # Change the ownership of display TE files for tcmds
-   chown root mot_tcmd /sys/class/graphics/fb0/te_test
-   chown root mot_tcmd /sys/class/graphics/fb0/te_enable
-   chown root mot_tcmd /sys/class/graphics/fb0/frame_counter
-
-service mmi-laser-sh /vendor/bin/init.mmi.laser.sh
-    class core
-    user root
-    oneshot
+   chown root oem_5004 /sys/class/graphics/fb0/te_test
+   chown root oem_5004 /sys/class/graphics/fb0/te_enable
+   chown root oem_5004 /sys/class/graphics/fb0/frame_counter
