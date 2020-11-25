@@ -7,10 +7,6 @@ import /vendor/etc/init/hw/init.mmi.overlay.rc
 # Moto USB configuration
 import /vendor/etc/init/hw/init.mmi.usb.rc
 
-# Carrier specific script
-import /vendor/etc/init/carrier/init.${ro.boot.carrier}.rc
-import /vendor/etc/init/carrier/init.default.rc
-
 on early-boot
     write /sys/module/subsystem_restart/parameters/disable_restart_work 0x0
 
@@ -23,14 +19,6 @@ on init
     chmod 0640 /sys/fs/pstore/dmesg-ramoops-0
     chown system log /proc/driver/mmi_annotate
     chmod 0640 /proc/driver/mmi_annotate
-
-    # Setup kernel dropbox permissions so that dropboxd can utilize it
-    chown root diag /sys/kernel/dropbox/event
-    chown root diag /sys/kernel/dropbox/data
-
-on fs
-    # use /persist as phony PDS partition
-    symlink /persist /pds
 
 on post-fs
     mkdir /mnt/vendor/persist/camera 0755 oem_5004 oem_5004
@@ -57,13 +45,12 @@ on post-fs
     mkdir /mnt/vendor/persist/bt 0755 oem_5004 bluetooth
     mkdir /persist/public/usc_dm 0775 radio radio
     mkdir /persist/sds 0700 vold vold
-    mkdir /mnt/vendor/persist/rfs/msm/mpss/mot_rfs 0771 rfs system
+    mkdir /mnt/vendor/persist/rfs/msm/mpss/mot_rfs 0771 vendor_rfs system
 
     # This dir is used to store any OMA(both DM and CP) files in persist partition
     # Any app with radio UID or vendor_tcmd GID can read/write/execute files in this dir.
     mkdir /mnt/vendor/persist/public/oma 0775 radio oem_5004
 
-    chown vendor_prod_persist vendor_prod_persist /mnt/product/persist/lifetime/tf_data
     chown oem_5004 oem_5004 /mnt/vendor/persist/factory/fti
     chmod 0664 /mnt/vendor/persist/factory/fti
     chown oem_5004 oem_5004 /mnt/vendor/persist/factory/byte
@@ -86,19 +73,18 @@ on post-fs
     swapon_all /vendor/etc/fstab.qcom
     write /proc/sys/vm/page-cluster 0
 
-
 on post-fs-data
 
     # Setup folders for security
     mkdir /mnt/vendor/persist/security 02770 drmrpc drmrpc
-    mkdir /data/vendor/dbvc 0750 vendor_tcmd shell
-    chown drmrpc vendor_tcmd /mnt/vendor/persist/security
+    mkdir /data/vendor/dbvc 0750 oem_5004 shell
+    chown drmrpc oem_5004 /mnt/vendor/persist/security
 
     # Setup folder for Pre-Activation Kill Switch app (PAKS)
     mkdir /mnt/vendor/persist/paks 02770 oem_5004 oem_5004
 
     # Create directory used by power_supply_logger
-    mkdir /data/vendor/power_supply_logger 0750 vendor_pwric log
+    mkdir /data/vendor/power_supply_logger 0750 oem_5001 log
     # Create directory power_supply_logger used by memtest and batt_health
     mkdir /data/vendor_de/power_supply_logger 0770 root log
     chown oem_5001 oem_5001 /sys/class/power_supply/battery/cycle_count
@@ -228,7 +214,7 @@ on boot
    chmod 0660 /sys/class/leds/vibrator/seq
    chown system system /sys/class/leds/vibrator/extra
    chmod 0660 /sys/class/leds/vibrator/extra
-   chown root vendor_mod /sys/bus/i2c/devices/2-005a/reduce
+   chown root oem_5020 /sys/bus/i2c/devices/2-005a/reduce
 
    # Change ownership of aov related sysfs entries
    chown audio audio /sys/kernel/aov/trigger
