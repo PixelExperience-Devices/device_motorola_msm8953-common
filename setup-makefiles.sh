@@ -18,7 +18,7 @@
 set -e
 
 DEVICE_COMMON=msm8953-common
-GUARDED_DEVICES_COMMON="ali sanders"
+GUARDED_DEVICES_COMMON="ali albus sanders"
 VENDOR=motorola
 
 INITIAL_COPYRIGHT_YEAR=2020
