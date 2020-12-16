@@ -507,7 +507,6 @@ vendor/lib64/libqmi_csi.so
 vendor/lib64/libqmi_encdec.so
 
 # Radio - from daisy_sprout:10/QKQ1.191002.002/V11.0.11.0.QDLMIXM
-product/framework/qti-telephony-common.jar|11d6b89b31a9bf65218b3676c2bbd296275b1932
 vendor/bin/rmt_storage|4cd57922075ada02799c4ee5fdc2f3eb881d6e52
 
 # Radio - from deen_sprout
