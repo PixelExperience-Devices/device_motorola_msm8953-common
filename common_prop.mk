@@ -54,10 +54,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.vendor.camera.expose.aux=1 \
-    ro.camera.cfa.packagelist=org.codeaurora.snapcam,com.motorola.camera2 \
     vidc.enc.dcvs.extra-buff-count=2 \
-    vendor.camera.aux.packagelist=com.motorola.camera2
 
 # Codec2 switch
 PRODUCT_PROPERTY_OVERRIDES += \
