@@ -1,20 +1,14 @@
 /*
- * Copyright 2017 The LineageOS Project
+ * SPDX-License-Identifier: GPL-3.0-or-later
  *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ * Copyright (C) 2019, Harshit Jain
  */
 
-#define LOG_TAG "android.hardware.light@2.0-service.motorola_msm8953"
+#define LOG_TAG "android.hardware.light@2.0-service.msm8953"
+
+/* dev-harsh1998: set page size to 32Kb for our hal */
+#include <hwbinder/ProcessState.h>
+#include <cutils/properties.h>
 
 #include <hidl/HidlTransportSupport.h>
 
@@ -30,8 +24,18 @@ using android::OK;
 using android::sp;
 using android::status_t;
 
+#define DEFAULT_LGTHAL_HW_BINDER_SIZE_KB 32
+size_t getHWBinderMmapSize() {
+    size_t value = 0;
+    value = property_get_int32("persist.vendor.msm8953.lighthal.hw.binder.size", DEFAULT_LGTHAL_HW_BINDER_SIZE_KB);
+    if (!value) value = DEFAULT_LGTHAL_HW_BINDER_SIZE_KB; // deafult to 1 page of 32 Kb
+     return 1024 * value;
+}
+
 int main() {
-    sp<ILight> service = new Light();
+    /* default to 32Kb */
+    android::hardware::ProcessState::initWithMmapSize(getHWBinderMmapSize());
+    android::sp<ILight> service = new Light();
 
     configureRpcThreadpool(1, true);
 
