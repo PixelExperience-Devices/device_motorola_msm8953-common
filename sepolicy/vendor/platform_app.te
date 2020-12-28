@@ -1,3 +1,6 @@
+typeattribute platform_app mlstrustedsubject;
+
+allow platform_app isdbt_device:chr_file rw_file_perms; 
 allow platform_app sysfs_kgsl:dir search;
 allow platform_app sysfs_kgsl:file { getattr open read };
 allow platform_app sysfs_healthd:dir r_dir_perms;
