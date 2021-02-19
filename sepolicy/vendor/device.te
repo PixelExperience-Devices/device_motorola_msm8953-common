@@ -1,1 +1,2 @@
+type adspd_device, dev_type;
 type isdbt_device, dev_type;
