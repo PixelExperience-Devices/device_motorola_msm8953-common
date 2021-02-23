@@ -275,6 +275,9 @@ firmware_directories /vendor/firmware_mnt/image/
 # GNSS Device premissions
 /dev/gnss_sirf             0660   gps     gps
 
+# Laser device
+/dev/laser                0660   system     camera
+
 # laser sensor access
 /sys/devices/virtual/input/input*                   enable_ps_sensor 0660  system   input
 /sys/devices/virtual/input/input*                   set_delay_ms     0660  system   input
