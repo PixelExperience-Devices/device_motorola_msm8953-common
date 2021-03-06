@@ -15,7 +15,7 @@
 
 LOCAL_PATH := $(call my-dir)
 
-ifneq ($(filter ali albus sanders,$(TARGET_DEVICE)),)
+ifneq ($(filter ali albus potter sanders,$(TARGET_DEVICE)),)
 
 include $(call all-makefiles-under,$(LOCAL_PATH))
 

@@ -5,4 +5,4 @@ Device configuration for Motorola msm8953 Devices
 
 Supported devices :
 
-Ali, Albus, Sanders
+Ali, Albus, Potter, Sanders
