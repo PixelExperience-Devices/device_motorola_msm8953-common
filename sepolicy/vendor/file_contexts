@@ -37,6 +37,7 @@
 /(mnt/vendor)/persist/camera(/.*)?                            u:object_r:persist_camera_file:s0
 /sys/devices/virtual/laser(/.*)?                              u:object_r:sysfs_sensor:s0
 /sys/devices/virtual/input/input4(/.*)?                       u:object_r:sysfs_sensor:s0
+/dev/laser                                                    u:object_r:laser_device:s0
 
 /(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-fpcservice    u:object_r:hal_fingerprint_fpc_exec:s0
 /(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service-ets   u:object_r:hal_fingerprint_fpc_exec:s0
@@ -51,6 +52,8 @@
 
 /sys/kernel/debug/rmt_storage(/.*)?                           u:object_r:debugfs_rmts:s0
 /sys/kernel/boot_wlan(/.*)?                                   u:object_r:sysfs_wifi:s0
+
+/(vendor|system/vendor)/bin/vl53l1_daemon                     u:object_r:vl53l1_exec:s0
 
 /sys/devices/soc/soc:fpc_fpc1020(/.*)?                        u:object_r:sysfs_fingerprint:s0
 /sys/devices/soc/0.et320(/.*)?                                u:object_r:sysfs_fingerprint:s0
