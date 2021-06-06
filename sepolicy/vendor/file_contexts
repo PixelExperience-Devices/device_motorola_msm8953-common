@@ -8,6 +8,10 @@
 /dev/block/platform/soc/7824900\.sdhci/by-name/prov_[ab]         u:object_r:custom_ab_block_device:s0
 /dev/block/platform/soc/7824900\.sdhci/by-name/storsec_[ab]      u:object_r:custom_ab_block_device:s0
 
+# Metadata
+/dev/block/platform/soc/7824900\.sdhci/by-name/metadata             u:object_r:metadata_block_device:s0
+
+# Modem
 /firmware/image(/.*)?                                               u:object_r:firmware_file:s0
 
 # ADSPD
