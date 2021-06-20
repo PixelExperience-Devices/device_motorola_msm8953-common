@@ -1,4 +1,4 @@
-# deen_sprout package version: QPKS30.54-22-13, unless stated otherwise
+# deen_sprout package version: QPKS30.54-22-21, unless stated otherwise
 
 # ADSP - from deen_sprout
 vendor/bin/adsprpcd
@@ -124,10 +124,6 @@ framework/tcmclient.jar
 product/lib64/libdpmctmgr.so
 product/lib64/libdpmfdmgr.so
 product/lib64/libdpmtcm.so
-
-# DRM-HDCP - from deen_sprout
-vendor/lib/libmm-hdcpmgr.so
-vendor/lib64/libmm-hdcpmgr.so
 
 # DRM-Qualcomm Trusted Execution Enviornment - from deen_sprout
 vendor/bin/hw/vendor.qti.hardware.qteeconnector@1.0-service
