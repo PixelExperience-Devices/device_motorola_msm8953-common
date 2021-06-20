@@ -620,8 +620,8 @@ vendor/radio/qcril_database/upgrade/10_version_qcrildb.sql
 vendor/radio/qcril_database/upgrade/11_version_qcrildb.sql
 vendor/radio/qcril_database/upgrade/13_version_qcrildb.sql
 
-# Radio IMS - from daisy_sprout:10/QKQ1.191002.002/V11.0.11.0.QDLMIXM
--product/priv-app/ims/ims.apk|09697fd2eec147f6c64c81842487acfd1497fc4c
+# Radio IMS - from from river:10/QPUS30.52-33-11
+-product/priv-app/ims/ims.apk|d25e4324fc021325eb7882c55583c5587c51b4a0
 
 # Radio IMS  - from deen_sprout
 product/framework/com.qualcomm.qti.imscmservice-V2.0-java.jar
