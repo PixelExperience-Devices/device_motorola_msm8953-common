@@ -15,3 +15,10 @@ allow init hal_audio_default:binder call;
 allow init platform_app:binder call;
 
 allow init system_file:system module_load;
+
+allow init hal_perf_default:binder call;
+allow init sysfs_healthd:file setattr;
+allow init hal_graphics_composer_default:binder call;
+allow init same_process_hal_file:file execute;
+allow init servicemanager:binder { call transfer };
+allow init sysfs_healthd:file setattr;
