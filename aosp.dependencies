@@ -9,5 +9,11 @@
     "repository":  "kernel_motorola_msm8953",
     "target_path": "kernel/motorola/msm8953",
     "branch": "eleven"
+  },
+  {
+    "repository"  : "hardware_motorola",
+    "target_path" : "hardware/motorola",
+    "branch"      : "eleven",
+    "remote"      : "pixel"
   }
 ]
