@@ -1,0 +1,4 @@
+service vendor.touch-hal-1-0-msm8953 /vendor/bin/hw/vendor.lineage.touch@1.0-service.msm8953
+    class hal
+    user system
+    group system
