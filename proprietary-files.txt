@@ -770,6 +770,7 @@ vendor/etc/init/init.time_daemon.rc
 
 # Wi-Fi - from deen_sprout
 vendor/bin/cnss-daemon
+vendor/bin/wcnss_service
 
 # Wi-Fi - Firmware - from deen_sprout
 vendor/etc/motorola/mdmctbk/ctbk_cfg.xml
